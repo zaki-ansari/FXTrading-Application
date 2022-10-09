@@ -19,7 +19,9 @@ public class TradeServiceImpl implements TradeService {
 	public String bookTrade(Trade trade) {
 		double convertedAmount=trade.getAmount()*trade.getRate();
 		this.tradeRepo.save(trade);
-		String msg = "You are transferring INR "+convertedAmount+" to John M.( Assuming that rate was "+trade.getRate()+")";
+		String msg ="Trade for "+trade.getCurrencyPair()+" has been booked with rate "+trade.getRate()+
+					" , The amount of Rs "+convertedAmount+" will be transferred in 2 working days to "+trade.getCustomerName();
+//		String msg = "You are transferring INR "+convertedAmount+" to John M.( Assuming that rate was "+trade.getRate()+")";
 		return msg;
 	}
 
